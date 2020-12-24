@@ -1,5 +1,0 @@
-//sumo:
-  def moveTo(self):
-        for i_veh in self.illegal_veh: # the list store vehicles' id
-            x, y = traci.vehicle.getPosition(i_veh)
-            traci.vehicle.moveToXY(vehID=i_veh, edgeID=traci.vehicle.getRoadID(i_veh), lane=traci.vehicle.getLaneIndex(i_veh), x=x+0.5, y=y, angle=tc.INVALID_DOUBLE_VALUE, keepRoute=2)

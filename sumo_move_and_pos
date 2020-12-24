@@ -1,0 +1,20 @@
+//sumo:车辆接触路边并被迫改变位置
+//车辆停在路中间时（由traci.vehicle.setStop实现）），使用moveToXY将车辆的位置微调到道路的最右侧。
+  def moveTo(self):
+        for i_veh in self.illegal_veh: # the list store vehicles' id
+            x, y = traci.vehicle.getPosition(i_veh)
+            traci.vehicle.moveToXY(vehID=i_veh, edgeID=traci.vehicle.getRoadID(i_veh), lane=traci.vehicle.getLaneIndex(i_veh), x=x+0.5, y=y, angle=tc.INVALID_DOUBLE_VALUE, keepRoute=2)
+
+//pos:
+getPosition(self, vehID)
+getPosition(string) -> (double, double)
+ 
+Returns the position of the named vehicle within the last step [m,m].
+getPosition3D(self, vehID)
+getPosition3D(string) -> (double, double, double)
+Returns the position of the named vehicle within the last step [m,m,m].
+
+//坐标转换
+x, y = traci.vehicle.getPosition(vehID)
+lon, lat = traci.simulation.convertGeo(x, y)
+x2, y2 = traci.simulation.convertGeo(lon, lat, fromGeo=True)
