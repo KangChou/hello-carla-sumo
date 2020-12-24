@@ -1,8 +1,9 @@
+
 高速公路检测器
 本教程介绍了如何在您已经为模拟站点提供了相当不错的网络源以及使用检测器为您提供汇总计数（以及速度）的良好网络覆盖范围的情况下，主要使用netedit，dfrouter和一些python工具来设置流量场景的方法 ）在现实世界中的车辆。它不仅限于高速公路，而且前提条件在此得到更频繁地满足。重点更多地放在需求准备和校准上，而不是网络调整上。 netedit_select_highway.png
 
 所选边（蓝色）的优先级较低，将被丢弃
-
+![3](https://sumo.dlr.de/docs/images/netedit_select_highway.png)
 网络
 假设您已经熟悉从自己喜欢的映射源进行网络提取，则可以使用netedit打开网络 并将其减少到您感兴趣的领域。假设您有一个navteq文件，可以选择（然后删除）优先级小于-1的所有边，以将其缩减为公路网。之后，可以使用矩形选择（保持移位）来进一步限制所考虑的区域。您可能还想在选项对话框中启用斜坡猜测。如果网络是由较旧版本的SUMO准备的，则在以后重新计算所有连接可能是一个好主意。为此，请在选择模式下选择所有结，然后在连接模式下将它们复位。可能仍然缺少缺少的坡道和异常连接，无法自动猜测，应在设置基本方案后手动修复。
 
@@ -82,3 +83,5 @@ flowFromRoutes.py
 
 tools/detector/flowFromRoutes.py -d detectors.det.xml -e emitters.flows.xml -f detector_flows.txt -r routes.rou.xml`
 ，其中generators.flows.xml定义路线流；detector_flows.txt定义了检测到的流量数据；route.rou.xml定义每条路线的边缘组成。有一些选项可以定义分析间隔。除了flowFromEdgeData.py中的上述输出外，还可以使用相应的选项--geh和--geh-treshold获得GEH统计信息。
+
+https://sumo.dlr.de/docs/Tutorials/HighwayDetector.html
