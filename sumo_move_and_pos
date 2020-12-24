@@ -18,3 +18,9 @@ Returns the position of the named vehicle within the last step [m,m,m].
 x, y = traci.vehicle.getPosition(vehID)
 lon, lat = traci.simulation.convertGeo(x, y)
 x2, y2 = traci.simulation.convertGeo(lon, lat, fromGeo=True)
+
+
+        for vehicleId in traci.vehicle.getIDList():
+            speed = traci.vehicle.getSpeed(vehicleId)
+            x, y = traci.vehicle.getPosition(vehicleId)
+            lon, lat = traci.simulation.convertGeo(x, y)
