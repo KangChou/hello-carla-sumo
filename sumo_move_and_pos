@@ -24,3 +24,6 @@ x2, y2 = traci.simulation.convertGeo(lon, lat, fromGeo=True)
             speed = traci.vehicle.getSpeed(vehicleId)
             x, y = traci.vehicle.getPosition(vehicleId)
             lon, lat = traci.simulation.convertGeo(x, y)
+
+
+Priority：道路的重要程度，是一个数值类型(优先级)
