@@ -27,3 +27,5 @@ x2, y2 = traci.simulation.convertGeo(lon, lat, fromGeo=True)
 
 
 Priority：道路的重要程度，是一个数值类型(优先级)
+
+https://sumo.dlr.de/docs/Basics/Using_the_Command_Line_Applications.html
