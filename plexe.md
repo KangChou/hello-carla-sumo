@@ -1,3 +1,4 @@
+```
 if 'SUMO_HOME' in os.environ:
    tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
    sys.path.append(tools)
@@ -130,6 +131,7 @@ if __name__ == "__main__":
  main(True, True)
 
 
+```
 
 
 
@@ -150,8 +152,7 @@ if __name__ == "__main__":
 
 
 
-
-
+```
 import os
 import sys
 import random
@@ -303,3 +304,4 @@ def main(demo_mode, real_engine, setter=None):
      traci.close()
 if __name__ == "__main__":
  main(True, True)
+```
