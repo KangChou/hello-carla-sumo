@@ -29,3 +29,23 @@ x2, y2 = traci.simulation.convertGeo(lon, lat, fromGeo=True)
 Priority：道路的重要程度，是一个数值类型(优先级)
 
 https://sumo.dlr.de/docs/Basics/Using_the_Command_Line_Applications.html
+
+
+
+https://sumo.dlr.de/docs/Tools/Sumolib.html
+net = sumolib.net.readNet('myNet.net.xml')
+
+# network coordinates (lower left network corner is at x=0, y=0)
+x, y = net.convertLonLat2XY(lon, lat)
+lon, lat = net.convertXY2LonLat(x, y)
+
+# raw UTM coordinates
+x, y = net.convertLonLat2XY(lon, lat, True)
+lon, lat = net.convertXY2LonLat(x, y, True)
+
+# lane/offset coordinates
+# from lane position to network coordinates
+x,y = sumolib.geomhelper.positionAtShapeOffset(net.getLane(laneID).getShape(), lanePos)
+# from network coordinates to lane position
+lane = net.getNeighboringLanes(x, y, radius) (see "locate nearby edges based on the geo-coordinate" above)
+lanePos, dist = sumolib.geomhelper.polygonOffsetAndDistanceToPoint((x,y), lane.getShape())
